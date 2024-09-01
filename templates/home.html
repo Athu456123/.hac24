@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrofitting Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="bg-container d-flex flex-column justify-content-start">
+        <div class="Retrofitting-card">
+            <h1 class="h1">Smart Retrofitting Recommendations</h1>
+            <div class="retro-card d-flex flex-column justify-content-end">
+                <form id="retrofit-form">
+                    <label for="building-type">Building Type:</label>
+                    <select id="building-type" onchange="updateBuildingSizeLabels()">
+                        <option value="residential">Residential</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+        
+                    <label for="building-size">Building Size:</label>
+                    <select id="building-size">
+                        <option value="small">Small (less than 1000sqft)</option>
+                        <option value="medium">Medium (1000 - 3000sqft)</option>
+                        <option value="large">Large (>3000sqft)</option>
+                    </select>
+
+                    <label for="energy-usage">Current Energy Usage (kWh/month):</label>
+                    <input type="number" id="energy-usage">
+    
+                    <button type="submit">Get Recommendations</button>
+                </form>
+    
+                <div id="recommendations"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
